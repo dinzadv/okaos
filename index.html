@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OKAOs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&display=swap" rel="stylesheet">
+    <link class="mcpixel-logo-ref" rel="icon" type="image/jpg" href="img/logo.jpg">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/mods.js" data-page="index" data-scripts="index"></script>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="bg-shade"></div>
+
+    <main class="layout">
+        <section class="left-section">
+            <div class="logo-container">
+                <img src="img/logo.png" alt="Logo OKAOs">
+            </div>
+            <div class="rhombus-menu">
+                <a href="https://discord.gg/VKChP6qKTc" target="_blank" class="rhombus-btn rhythmic-btn" title="Discord">
+                    <svg viewBox="0 0 127.14 96.36">
+                        <path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a77.7,77.7,0,0,0,6.63-10.85,68.43,68.43,0,0,1-10.4-5c.9-.66,1.76-1.37,2.59-2.11a75.11,75.11,0,0,0,65.68,0c.84.74,1.69,1.45,2.59,2.11a68.17,68.17,0,0,1-10.4,5,76.5,76.5,0,0,0,6.63,10.85,105.73,105.73,0,0,0,31.05-18.83C129.9,50.12,123.63,27.35,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.83,46,53.83,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.07,46,96.07,53,91,65.69,84.69,65.69Z"/>
+                    </svg>
+                </a>
+                <div class="rhombus-btn rhythmic-btn" id="statsBtn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7.5 21H2V15.5H7.5V21ZM14.75 21H9.25V10H14.75V21ZM22 21H16.5V13H22V21ZM14.75 6.5C14.75 7.88 13.63 9 12.25 9C10.87 9 9.75 7.88 9.75 6.5C9.75 5.12 10.87 4 12.25 4C13.63 4 14.75 5.12 14.75 6.5Z"/>
+                    </svg>
+                </div>
+                <div class="rhombus-btn rhythmic-btn" id="modsBtn">
+                    <img src="img/icons/ic1.png" alt="Icon">
+                </div>
+                <div class="rhombus-btn rhythmic-btn" id="versionBtn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
+                    </svg>
+                </div>
+                <div class="rhombus-btn rhythmic-btn" id="controlsBtn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M21,6H3A2,2 0 0,0 1,8V16A2,2 0 0,0 3,18H21A2,2 0 0,0 23,16V8A2,2 0 0,0 21,6M6,15H5V13H3V11H5V9H6V11H8V13H6V15M15.5,14A1.5,1.5 0 1,1 17,12.5A1.5,1.5 0 0,1 15.5,14M19.5,11A1.5,1.5 0 1,1 21,9.5A1.5,1.5 0 0,1 19.5,11Z" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section class="right-section">
+            <div class="menu-container">
+                <a href="sc/play.html" class="btn btn-play" id="btnPlay">
+                    <span>PLAY</span>
+                </a>
+                
+                <div class="menu-row">
+                    <a href="sc/music.html" class="btn btn-canciones" id="btnCanciones">
+                        <span>CANCIONES</span>
+                    </a>
+                    <a href="sc/profile.html" class="btn btn-perfil" id="btnPerfil">
+                        <span>PERFIL</span>
+                    </a>
+                </div>
+                
+                <a href="sc/settings.html" class="btn btn-ajustes" id="btnAjustes">
+                    <span>AJUSTES</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal-overlay" id="controlsModal">
+        <div class="modal-card">
+            <div class="modal-close" id="closeModal">✕</div>
+            <h2 class="modal-title">Controles</h2>
+            <div class="modal-desc">
+                Presiona las teclas correspondientes en tu teclado para probar que funcionen correctamente. Verás un destello verde alrededor del cuadro de la tecla activa.<br><br>
+                Si quieres cambiar las teclas puedes ir a <b><a href="sc/settings.html">Settings</a></b>
+            </div>
+            <div class="keys-container">
+                <div class="key-box" data-key="d">D</div>
+                <div class="key-box" data-key="f">F</div>
+                <div class="key-box" data-key="j">J</div>
+                <div class="key-box" data-key="k">K</div>
+            </div>
+            <div class="gif-container">
+                <img src="img/icons/ic2.gif" alt="Decoration">
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="versionModal">
+        <div class="modal-card modal-card-large">
+            
+            <div class="version-banner">
+                <img src="img/forgegames.png" alt="Forge Games">
+            </div>
+
+            <div class="info-group">
+                <h3>Desarrolladores</h3>
+                <div class="devs-row">
+                    <img src="img/c/dinzadv.png" alt="DinzaDV" class="dev-avatar">
+                    <span class="dot-separator">•</span>
+                    <img src="img/c/foxy_tp.png" alt="Foxy" class="dev-avatar">
+                </div>
+            </div>
+
+            <div class="info-group">
+                <h3>Diseñadores</h3>
+                <p class="simple-text">No definido</p>
+            </div>
+
+            <div class="info-group">
+                <h3>Sonidos</h3>
+                <ul class="links-list">
+                    <li><a href="https://create.roblox.com/store/asset/7107162229/Button-pressed" target="_blank">Button Pressed (Roblox)</a></li>
+                    <li><a href="https://pixabay.com/es/sound-effects/musical-tr707-crash-cymbal-241376/" target="_blank">TR707 Crash Cymbal (Pixabay)</a></li>
+                </ul>
+            </div>
+
+            <div class="info-group">
+                <h3>Música</h3>
+                <ul class="links-list">
+                    <li><a href="https://rustedstudio.itch.io/free-music-lofi-tracks" target="_blank">Free Music Lofi Tracks (Rusted Studio)</a></li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <div class="game-data">
+                    <p><strong>Versión:</strong> 1.0</p>
+                    <p><strong>Motor:</strong> HTML5 / Canvas / Web Engine</p>
+                    <p><strong>Plataforma:</strong> Multiplataforma (PC & Mobile)</p>
+                </div>
+
+                <div class="legal-links">
+                    <a href="#">Términos y Condiciones <span class="arrow">→</span></a>
+                    <a href="#">Políticas de Privacidad <span class="arrow">→</span></a>
+                    <a href="#">Política de Cookies <span class="arrow">→</span></a>
+                    <a href="#">Avisos Legales <span class="arrow">→</span></a>
+                </div>
+            </div>
+
+            <button class="btn-ok" id="closeVersionBtn">Ok</button>
+        </div>
+    </div>
+
+    <div class="toast-notification" id="modsToast">
+        <div class="toast-content">
+            <svg class="bell-icon" viewBox="0 0 24 24">
+                <path d="M12,2A2,2 0 0,0 10,4A2,2 0 0,0 10,4.29C7.12,5.14 5,7.82 5,11V17L3,19V20H21V19L19,17V11C19,7.82 16.88,5.14 14,4.29A2,2 0 0,0 14,4A2,2 0 0,0 12,22A2,2 0 0,0 14,20H10A2,2 0 0,0 12,22Z"/>
+            </svg>
+            <span class="toast-text">Los Mods No están disponibles</span>
+        </div>
+    </div>
+
+
+</body>
+</html>
