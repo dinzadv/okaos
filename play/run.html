@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>OKAOs - Play</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpg" href="../img/logo.jpg">
+    <link rel="stylesheet" href="../css/run.css">
+    <script src="../js/mods.js" data-page="run" data-scripts="okx,songs,run"></script>
+</head>
+<body oncontextmenu="return false;">
+    <video id="bgVideo" class="bg-video" loop muted></video>
+    <audio id="bgMusic"></audio>
+    <audio id="clickSound" src="../sounds/click2.ogg" preload="auto"></audio>
+
+    <div class="lobby-screen" id="lobbyViewport">
+        <div class="left-slash-partition">
+            <div class="logo-container">
+                <img src="../img/logo.png" alt="Logo OKAOs">
+            </div>
+            <div class="menu-container">
+                <div class="btn-mode" id="btnNormal">
+                    <div class="icon-wrapper">
+                        <img src="../img/icons/ic5.png" alt="Normal">
+                    </div>
+                    <div class="slash-fold"></div>
+                    <div class="text-wrapper">
+                        <span>Normal</span>
+                    </div>
+                </div>
+                <div class="btn-mode" id="btnRecovery">
+                    <div class="icon-wrapper">
+                        <img src="../img/icons/ic6.png" alt="Recuperación">
+                    </div>
+                    <div class="slash-fold"></div>
+                    <div class="text-wrapper">
+                        <span>Recuperación</span>
+                    </div>
+                </div>
+                <div class="btn-mode" id="btnNoLives">
+                    <div class="icon-wrapper">
+                        <img src="../img/icons/ic7.png" alt="Sin Vidas">
+                    </div>
+                    <div class="slash-fold"></div>
+                    <div class="text-wrapper">
+                        <span>Sin Vidas</span>
+                    </div>
+                </div>
+                <div class="btn-mode" id="btnExit">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" class="smooth-icon">
+                            <path d="M14.08,15.59L16.67,13H7V11H16.67L14.08,8.41L15.5,7L20.5,12L15.5,17L14.08,15.59M19,3A2,2 0 0,1 21,5V9.67L19,7.67V5H5V19H19V16.33L21,14.33V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5C3,3.89 3.89,3 5,3H19Z"/>
+                        </svg>
+                    </div>
+                    <div class="slash-fold"></div>
+                    <div class="text-wrapper">
+                        <span>Salir</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-content-partition">
+            <div class="music-panel">
+                <div class="music-art-frame">
+                    <img id="songArt" src="../img/logo.jpg" alt="Song Art" onerror="this.src='../img/logo.jpg'">
+                </div>
+                <div class="music-info">
+                    <span class="music-title" id="songTitle">Unknown Track</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="game-layout" id="gameViewport">
+        <div class="countdown-overlay" id="countdownOverlay">
+            <div class="countdown-text" id="countdownText">3</div>
+        </div>
+
+        <div class="top-navbar">
+            <div class="brand-logo">OKAOs</div>
+            <div class="center-lives-area">
+                <div class="hearts-container" id="heartsContainer">
+                    <img src="../img/icons/ic8.png" alt="Heart" class="heart-icon">
+                    <img src="../img/icons/ic8.png" alt="Heart" class="heart-icon">
+                    <img src="../img/icons/ic8.png" alt="Heart" class="heart-icon">
+                </div>
+                <div class="bar-container" id="barContainer">
+                    <div class="bar-fill" id="barFill"></div>
+                </div>
+            </div>
+            <div class="pause-wrapper" id="pauseTrigger">
+                <svg class="btn-pause" viewBox="0 0 24 24">
+                    <path d="M14,19H18V5H14M6,19H10V5H6V19Z"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="lyric-overlay" id="lyricOverlay"></div>
+
+        <div class="hud-counters-bar">
+            <div class="counter-item score-counter" id="score">000000</div>
+            <div class="counter-item perfect-counter" id="perfectCounter">P:<span id="perfectValue">x0</span></div>
+            <div class="counter-item common-counter" id="commonCounter">C:<span id="commonValue">x0</span></div>
+            <div class="counter-item okay-counter" id="okayCounter">O:<span id="okayValue">x0</span></div>
+            <div class="counter-item miss-counter" id="missCounter">M:<span id="missValue">x0</span></div>
+        </div>
+
+        <div class="tracks-container" id="tracksContainer">
+            <div class="receptors-row">
+                <div class="receptor-box col-0">
+                    <div class="receptor" id="receptor-0">
+                        <div class="arrow-icon dir-left"></div>
+                    </div>
+                </div>
+                <div class="receptor-box col-1">
+                    <div class="receptor" id="receptor-1">
+                        <div class="arrow-icon dir-up"></div>
+                    </div>
+                </div>
+                <div class="receptor-box col-2">
+                    <div class="receptor" id="receptor-2">
+                        <div class="arrow-icon dir-down"></div>
+                    </div>
+                </div>
+                <div class="receptor-box col-3">
+                    <div class="receptor" id="receptor-3">
+                        <div class="arrow-icon dir-right"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="track-column" id="track-0"></div>
+            <div class="track-column" id="track-1"></div>
+            <div class="track-column" id="track-2"></div>
+            <div class="track-column" id="track-3"></div>
+        </div>
+
+        <div class="feedback-overlay">
+            <div id="rating" class="rating">PERFECT</div>
+        </div>
+    </div>
+
+    <div class="pause-screen" id="pauseViewport">
+        <div class="pause-left-partition">
+            <div class="pause-title">Pausa</div>
+            <div class="pause-menu-container">
+                <div class="btn-mode" id="btnResume">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" class="smooth-icon">
+                            <path d="M8,5.14V19.14L19,12.14L8,5.14Z"/>
+                        </svg>
+                    </div>
+                    <div class="slash-fold"></div>
+                    <div class="text-wrapper">
+                        <span>Reanudar</span>
+                    </div>
+                </div>
+                <div class="btn-mode" id="btnRestart">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" class="smooth-icon">
+                            <path d="M17.65,6.35C16.2,4.9 14.21,4 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20C15.73,20 18.84,17.45 19.73,14H17.65C16.83,16.33 14.61,18 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6C13.66,6 15.14,6.69 16.22,7.78L13,11H20V4L17.65,6.35Z"/>
+                        </svg>
+                    </div>
+                    <div class="slash-fold"></div>
+                    <div class="text-wrapper">
+                        <span>Reiniciar</span>
+                    </div>
+                </div>
+                <div class="btn-mode" id="btnSettings">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" class="smooth-icon">
+                            <path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.47,5.34 14.86,5.1L14.47,2.42C14.43,2.19 14.24,2 14,2H10C9.76,2 9.57,2.19 9.53,2.42L9.14,5.1C8.53,5.34 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.95C7.96,18.34 8.53,18.66 9.14,18.9L9.53,21.58C9.57,21.81 9.76,22 10,22H14C14.24,22 14.43,21.81 14.47,21.58L14.86,18.9C15.47,18.66 16.04,18.34 16.56,17.95L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"/>
+                        </svg>
+                    </div>
+                    <div class="slash-fold"></div>
+                    <div class="text-wrapper">
+                        <span>Ajustes</span>
+                    </div>
+                </div>
+                <div class="btn-mode" id="btnPauseExit">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" class="smooth-icon">
+                            <path d="M14.08,15.59L16.67,13H7V11H16.67L14.08,8.41L15.5,7L20.5,12L15.5,17L14.08,15.59M19,3A2,2 0 0,1 21,5V9.67L19,7.67V5H5V19H19V16.33L21,14.33V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5C3,3.89 3.89,3 5,3H19Z"/>
+                        </svg>
+                    </div>
+                    <div class="slash-fold"></div>
+                    <div class="text-wrapper">
+                        <span>Salir</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pause-right-partition">
+            <div class="stats-panel">
+                <div class="stats-heading">Estadísticas</div>
+                <div class="stat-row">
+                    <span>Puntaje</span>
+                    <span class="stat-val gold" id="pauseScore">000000</span>
+                </div>
+                <div class="stat-row">
+                    <span>Perfects</span>
+                    <span class="stat-val" id="pausePerfects">x0</span>
+                </div>
+                <div class="stat-row">
+                    <span>Combo Máx</span>
+                    <span class="stat-val" id="pauseCombo">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="end-screen" id="endViewport">
+        <div class="end-left-partition">
+            <div class="end-title" id="endTitle">Fin de Partida</div>
+            <div class="end-menu-container">
+                <div class="btn-mode" id="btnEndRetry">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" class="smooth-icon">
+                            <path d="M17.65,6.35C16.2,4.9 14.21,4 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20C15.73,20 18.84,17.45 19.73,14H17.65C16.83,16.33 14.61,18 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6C13.66,6 15.14,6.69 16.22,7.78L13,11H20V4L17.65,6.35Z"/>
+                        </svg>
+                    </div>
+                    <div class="slash-fold"></div>
+                    <div class="text-wrapper">
+                        <span>Reintentar</span>
+                    </div>
+                </div>
+                <div class="btn-mode" id="btnEndSongs">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" class="smooth-icon">
+                            <path d="M12,3V12.26C11.5,12.09 11,12 10.5,12C8,12 6,14 6,16.5C6,19 8,21 10.5,21C13,21 15,19 15,16.5V6H19V3H12Z"/>
+                        </svg>
+                    </div>
+                    <div class="slash-fold"></div>
+                    <div class="text-wrapper">
+                        <span>Canciones</span>
+                    </div>
+                </div>
+                <div class="btn-mode" id="btnEndExit">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24" class="smooth-icon">
+                            <path d="M14.08,15.59L16.67,13H7V11H16.67L14.08,8.41L15.5,7L20.5,12L15.5,17L14.08,15.59M19,3A2,2 0 0,1 21,5V9.67L19,7.67V5H5V19H19V16.33L21,14.33V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5C3,3.89 3.89,3 5,3H19Z"/>
+                        </svg>
+                    </div>
+                    <div class="slash-fold"></div>
+                    <div class="text-wrapper">
+                        <span>Inicio</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="end-right-partition">
+            <div class="results-panel">
+                <div class="results-heading" id="resultsStatus">Completado</div>
+                <div class="results-rank">
+                    <img class="rank-img" id="rankImg" src="" alt="Rank">
+                </div>
+                <div class="results-stars">
+                    <img class="star-item" id="star-1" src="../img/assets/star.png" alt="Estrella">
+                    <img class="star-item" id="star-2" src="../img/assets/star.png" alt="Estrella">
+                    <img class="star-item" id="star-3" src="../img/assets/star.png" alt="Estrella">
+                </div>
+                <div class="stat-row">
+                    <span>Puntaje</span>
+                    <span class="stat-val gold" id="endScore">000000</span>
+                </div>
+                <div class="stat-row">
+                    <span>Perfects</span>
+                    <span class="stat-val" id="endPerfects">x0</span>
+                </div>
+                <div class="stat-row">
+                    <span>Combo Máx</span>
+                    <span class="stat-val" id="endCombo">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
