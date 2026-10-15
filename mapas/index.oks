@@ -1,0 +1,18 @@
+([
+  {id:"m1",file:"Daidaidaidaidaikirai.okx",nombre:"Daidaidaidaidaikirai",autor:"Amala",dificultad:"Hard",star:"3",bpm:130,duracion:"02:35",puntos:48600,hasVideo:true},
+  {id:"m2",file:"On The Way (TV Size).okx",nombre:"On The Way (TV Size)",autor:"AiNA THE END",dificultad:"Hard",star:"2.5",bpm:186,duracion:"01:31",puntos:37100,hasVideo:true},
+  {id:"m3",file:"Eien Janakute Gomen ne.okx",nombre:"Eien Janakute Gomen ne",autor:"warabe",dificultad:"Medium",star:"2",bpm:200,duracion:"02:10",puntos:38400,hasVideo:false},
+  {id:"m4",file:"Teto the 31st.okx",nombre:"Teto the 31st",autor:"HALLO CEL feat. Kasane Teto, Ui",dificultad:"Hard",star:"3",bpm:160,duracion:"02:16",puntos:42400,hasVideo:true},
+  {id:"m5",file:"Aishite Aishite Aishite.okx",nombre:"Aishite Aishite Aishite",autor:"Ado",dificultad:"Impossible",star:"4",bpm:230,duracion:"04:10",puntos:78000,hasVideo:false},
+  {id:"m6",file:"the perfect pair.okx",nombre:"the perfect pair",autor:"Beabadoobee",dificultad:"Medium",star:"2.5",bpm:146,duracion:"02:53",puntos:42800,hasVideo:false},
+  {id:"m7",file:"RUSH E.okx",nombre:"RUSH E",autor:"Sheet Music Boss",dificultad:"Hard",star:"4.5",bpm:175,duracion:"02:19",puntos:74800,hasVideo:false},
+  {id:"m8",file:"Science (feat. Kasane Teto SV).okx",nombre:"Science (feat. Kasane Teto SV)",autor:"MIMI",dificultad:"Medium",star:"3",bpm:188,duracion:"03:04",puntos:129000,hasVideo:false},
+  {id:"m9",file:"Hatsune Miku no Shoushitsu.okx",nombre:"Hatsune Miku no Shoushitsu",autor:"Hatsune Miku",dificultad:"Hard",star:"4",bpm:240,duracion:"02:24",puntos:70500,hasVideo:false},
+  {id:"m10",file:"Immoral Memory~The Lost Memory~.okx",nombre:"Immoral Memory~The Lost Memory~",autor:"Kamui Gakupo, KAITO, Kagamine Len",dificultad:"Impossible",star:"5",bpm:230,duracion:"04:12",puntos:72900,hasVideo:true},
+  {id:"m11",file:"Exorcist feat. Ui, Gemini (TTS), Miku.okx",nombre:"Exorcist feat. Ui, Gemini (TTS), Miku",autor:"Something's off with my Vocaloid",dificultad:"Impossible",star:"5",bpm:174,duracion:"02:26",puntos:87800,hasVideo:true},
+  {id:"m12",file:"Tool.okx",nombre:"Tool",autor:"MARETU",dificultad:"Medium",star:"3",bpm:172,duracion:"00:47",puntos:32500,hasVideo:false},
+  {id:"m13",file:"YARARARA feat. Kasane Teto.okx",nombre:"YARARARA feat. Kasane Teto",autor:"AnythingBecomeMoe feat. Kasane Teto",dificultad:"Hard",star:"4.5",bpm:125,duracion:"02:29",puntos:65000,hasVideo:true},
+  {id:"m14",file:"Signaling.okx",nombre:"Signaling",autor:"ABM",dificultad:"Impossible",star:"5",bpm:150,duracion:"02:58",puntos:39715,hasVideo:true},
+  {id:"m15",file:"Binomi (Cut Ver.).okx",nombre:"Binomi (Cut Ver.)",autor:"MARETU",dificultad:"Expert",star:"6",bpm:162,duracion:"02:02",puntos:70500,hasVideo:false},
+  {id:"m16",file:"Beethoven Virus (Full ver.).okx",nombre:"Beethoven Virus (Full ver.)",autor:"Banya",dificultad:"Impossible",star:"5",bpm:156,duracion:"03:35",puntos:52600,hasVideo:false},
+])
