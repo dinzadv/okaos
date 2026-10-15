@@ -1,0 +1,108 @@
+/* =====================================================================
+   NO CONTROL  -  tema visual del mod  (se carga SOLO como hoja extra del mod)
+   Paleta: Teto (rosa/rojo) <-> Miku (turquesa)
+   Variables que actualiza scripts/nocontrol.js:  --nc-beat (0..1, pulso por beat)
+   ===================================================================== */
+:root {
+    --nc-l0: #ff3b6b;   /* izquierda  */
+    --nc-l1: #00e5d4;   /* arriba     */
+    --nc-l2: #b48cff;   /* abajo      */
+    --nc-l3: #ffd23f;   /* derecha    */
+    --nc-beat: 0;
+}
+
+/* ---------- flechas / receptores (colores por carril) ---------- */
+html[data-page="run"] .n-left  .arrow-icon { background-color: var(--nc-l0); filter: drop-shadow(0 0 9px var(--nc-l0)); }
+html[data-page="run"] .n-up    .arrow-icon { background-color: var(--nc-l1); filter: drop-shadow(0 0 9px var(--nc-l1)); }
+html[data-page="run"] .n-down  .arrow-icon { background-color: var(--nc-l2); filter: drop-shadow(0 0 9px var(--nc-l2)); }
+html[data-page="run"] .n-right .arrow-icon { background-color: var(--nc-l3); filter: drop-shadow(0 0 9px var(--nc-l3)); }
+
+html[data-page="run"] .col-0 .receptor.active .arrow-icon { background-color: var(--nc-l0); filter: drop-shadow(0 0 14px var(--nc-l0)); }
+html[data-page="run"] .col-1 .receptor.active .arrow-icon { background-color: var(--nc-l1); filter: drop-shadow(0 0 14px var(--nc-l1)); }
+html[data-page="run"] .col-2 .receptor.active .arrow-icon { background-color: var(--nc-l2); filter: drop-shadow(0 0 14px var(--nc-l2)); }
+html[data-page="run"] .col-3 .receptor.active .arrow-icon { background-color: var(--nc-l3); filter: drop-shadow(0 0 14px var(--nc-l3)); }
+
+/* los receptores laten con el beat (160 BPM) */
+html.nc-active .receptor-box .receptor:not(.active) .arrow-icon {
+    background-color: rgba(255, 255, 255, calc(0.30 + 0.35 * var(--nc-beat)));
+    transform-origin: center;
+}
+html.nc-active .receptor-box.col-0 .receptor:not(.active) .arrow-icon { filter: drop-shadow(0 0 calc(2px + 8px * var(--nc-beat)) var(--nc-l0)); }
+html.nc-active .receptor-box.col-1 .receptor:not(.active) .arrow-icon { filter: drop-shadow(0 0 calc(2px + 8px * var(--nc-beat)) var(--nc-l1)); }
+html.nc-active .receptor-box.col-2 .receptor:not(.active) .arrow-icon { filter: drop-shadow(0 0 calc(2px + 8px * var(--nc-beat)) var(--nc-l2)); }
+html.nc-active .receptor-box.col-3 .receptor:not(.active) .arrow-icon { filter: drop-shadow(0 0 calc(2px + 8px * var(--nc-beat)) var(--nc-l3)); }
+
+/* ---------- HOLDS (teclas mantenidas) ---------- */
+html[data-page="run"] .hold-bar {
+    width: 16px;
+    border-radius: 8px;
+    opacity: 0.55;
+    box-shadow: 0 0 12px currentColor, inset 0 0 6px rgba(255, 255, 255, 0.55);
+}
+html[data-page="run"] .hold-bar.holding { opacity: 1; filter: brightness(1.25) saturate(1.2); }
+html[data-page="run"] #track-0 .hold-bar { background: linear-gradient(90deg, #ff3b6b, #ff9db5, #ff3b6b) !important; color: var(--nc-l0); }
+html[data-page="run"] #track-1 .hold-bar { background: linear-gradient(90deg, #00e5d4, #a8fff7, #00e5d4) !important; color: var(--nc-l1); }
+html[data-page="run"] #track-2 .hold-bar { background: linear-gradient(90deg, #b48cff, #e0d0ff, #b48cff) !important; color: var(--nc-l2); }
+html[data-page="run"] #track-3 .hold-bar { background: linear-gradient(90deg, #ffd23f, #fff0a8, #ffd23f) !important; color: var(--nc-l3); }
+@keyframes nc-hold-flow { from { background-position: 0 0; } to { background-position: 0 -40px; } }
+html[data-page="run"] .hold-bar.holding { background-size: 100% 40px !important; animation: nc-hold-flow 0.4s linear infinite; }
+
+/* ---------- pista y fondo reaccionando al ritmo ---------- */
+html.nc-active .tracks-container {
+    box-shadow: 0 0 calc(14px + 36px * var(--nc-beat)) rgba(255, 59, 107, calc(0.10 + 0.22 * var(--nc-beat))),
+                0 0 calc(14px + 36px * var(--nc-beat)) rgba(0, 229, 212, calc(0.10 + 0.22 * var(--nc-beat)));
+}
+html.nc-active .bg-video {
+    filter: brightness(calc(0.60 + 0.22 * var(--nc-beat))) saturate(1.25);
+}
+html.nc-active .game-layout::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(ellipse at 50% 100%, rgba(255, 59, 107, calc(0.25 * var(--nc-beat))), transparent 60%),
+                radial-gradient(ellipse at 50% 0%, rgba(0, 229, 212, calc(0.22 * var(--nc-beat))), transparent 60%);
+}
+
+/* ---------- feedback de golpes ---------- */
+html.nc-perfect .tracks-container { filter: brightness(1.18); }
+@keyframes nc-shake {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-4px, 1px); }
+    50% { transform: translate(4px, -1px); }
+    75% { transform: translate(-2px, 1px); }
+    100% { transform: translate(0, 0); }
+}
+html.nc-miss .tracks-container { animation: nc-shake 0.22s linear; }
+html.nc-miss .game-layout { filter: saturate(0.7) hue-rotate(-12deg); }
+
+/* ---------- secciones (textos del mapa) ---------- */
+html.nc-active .lyric-overlay span {
+    background: linear-gradient(90deg, rgba(255, 59, 107, 0.85), rgba(0, 229, 212, 0.85));
+    font-weight: 900;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    font-size: 1rem;
+    padding: 8px 22px;
+    text-shadow: 2px 0 #ff3b6b, -2px 0 #00e5d4;
+    box-shadow: 0 0 24px rgba(0, 229, 212, 0.45);
+}
+
+/* ---------- notas con tag "glitch" (cambian de carril) ---------- */
+@keyframes nc-glitch {
+    0%   { opacity: 1;    clip-path: inset(0 0 0 0); }
+    20%  { opacity: 0.55; clip-path: inset(0 0 55% 0); }
+    40%  { opacity: 1;    clip-path: inset(40% 0 0 0); }
+    60%  { opacity: 0.7;  clip-path: inset(0 0 0 0); }
+    80%  { opacity: 1;    clip-path: inset(15% 0 25% 0); }
+    100% { opacity: 1;    clip-path: inset(0 0 0 0); }
+}
+.note.tag-glitch .arrow-icon {
+    translate: var(--nc-jit, 0px) 0;
+    animation: nc-glitch 0.45s steps(1) infinite;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85) inset;
+}
+
+/* ---------- bombas ---------- */
+.note.is-bomb .arrow-icon { width: 50px; height: 52px; }
