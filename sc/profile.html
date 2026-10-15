@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - OKAOs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpg" href="../img/logo.jpg">
+    <link rel="stylesheet" href="../css/profile.css">
+    <script src="../js/mods.js" data-page="profile" data-scripts="okx,songs,profile"></script>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="profile-wrapper">
+        <div class="top-nav">
+            <a href="../index.html" class="icon-btn" id="backBtn">
+                <svg viewBox="0 0 24 24">
+                    <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"/>
+                </svg>
+            </a>
+            <div class="page-title">INFORMACIÓN</div>
+            <button class="icon-btn" id="settingsBtn">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.68 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="main-card">
+            <div class="banner-container" id="profileBanner">
+                <div class="banner-overlay"></div>
+            </div>
+
+            <div class="user-header-info">
+                <div class="avatar-row">
+                    <div class="avatar-square-frame">
+                        <img src="../img/profiles/p1.jpg" id="profileAvatar" alt="Avatar">
+                    </div>
+                    <div class="user-titles">
+                        <div class="user-name" id="userNameDisplay">User</div>
+                        <div class="badges-group" id="badgesGroup"></div>
+                        <div class="country-flag-row">
+                            <img src="https://flagcdn.com/w40/mx.png" id="countryFlagImg" alt="Bandera">
+                            <span id="countryNameDisplay">México</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rankings-row">
+                    <div class="rank-item">
+                        <span class="rank-label">Mejor Rango</span>
+                        <span class="rank-value" id="rankValueBest">—</span>
+                    </div>
+                    <div class="rank-item">
+                        <span class="rank-label">Canciones Jugadas</span>
+                        <span class="rank-value" id="rankValueSongs">0</span>
+                    </div>
+                </div>
+
+                <div class="ranks-summary-grid">
+                    <div class="rank-box">
+                        <img src="../img/assets/ranks/sss.png" class="rank-icon-img" alt="SSS">
+                        <span class="rank-count" id="countSSS">0</span>
+                    </div>
+                    <div class="rank-box">
+                        <img src="../img/assets/ranks/ss.png" class="rank-icon-img" alt="SS">
+                        <span class="rank-count" id="countSS">0</span>
+                    </div>
+                    <div class="rank-box">
+                        <img src="../img/assets/ranks/s.png" class="rank-icon-img" alt="S">
+                        <span class="rank-count" id="countS">0</span>
+                    </div>
+                    <div class="rank-box">
+                        <img src="../img/assets/ranks/a.png" class="rank-icon-img" alt="A">
+                        <span class="rank-count" id="countA">0</span>
+                    </div>
+                    <div class="rank-box">
+                        <img src="../img/assets/ranks/b.png" class="rank-icon-img" alt="B">
+                        <span class="rank-count" id="countB">0</span>
+                    </div>
+                </div>
+
+                <div class="level-container">
+                    <div class="hexagon-level-wrapper">
+                        <svg viewBox="0 0 100 100">
+                            <polygon points="50,4 92,25 92,75 50,96 8,75 8,25" fill="#120b1a" stroke="#ff2a6d" stroke-width="5" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="hexagon-level-text" id="levelText">1</span>
+                    </div>
+                    <div class="level-bar-wrap">
+                        <div class="level-bar-bg">
+                            <div class="level-bar-fill" id="levelBarFill" style="width: 0%;"></div>
+                        </div>
+                        <div class="level-subtext">
+                            <span>Progreso de Nivel</span>
+                            <span id="levelXpText">0/500 XP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-list">
+                    <div class="stat-row">
+                        <span class="stat-txt-label">Partidas Jugadas</span>
+                        <span class="stat-txt-val" id="statPlays">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-txt-label">Puntuación Total</span>
+                        <span class="stat-txt-val" id="statTotalScore">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-txt-label">Precisión Media</span>
+                        <span class="stat-txt-val" id="statAccuracy">0%</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-txt-label">Combo Máximo</span>
+                        <span class="stat-txt-val" id="statMaxCombo">0x</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-txt-label">Hits Totales</span>
+                        <span class="stat-txt-val" id="statHits">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-txt-label">Canciones con Récord</span>
+                        <span class="stat-txt-val" id="statSongsRecord">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="section-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#ff2a6d">
+                    <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,4M11,17H13V11H11V17M11,9H13V7H11V9Z"/>
+                </svg>
+                <span id="medalsCountText">Medallas (0/5)</span>
+            </div>
+            <div class="medals-grid" id="medalsGrid"></div>
+        </div>
+
+        <div class="section-card">
+            <div class="section-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#ff2a6d">
+                    <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/>
+                </svg>
+                Mejores Puntuaciones
+            </div>
+            <div class="top-ranks-list" id="topRanksList"></div>
+        </div>
+        <div class="section-card">
+            <div class="section-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#ff2a6d">
+                    <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+                </svg>
+                Música Favorita
+            </div>
+            <div class="fav-songs-display" id="favSongsDisplay"></div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop" id="medalModal">
+        <div class="modal-content medal-modal-box">
+            <div class="modal-title" id="medalModalTitle"></div>
+            <div class="medal-modal-img-wrap" id="medalModalImgWrap"></div>
+            <p class="medal-modal-desc" id="medalModalDesc"></p>
+            <span class="medal-modal-status" id="medalModalStatus"></span>
+            <div class="modal-actions">
+                <button class="btn-action btn-cancel" id="closeMedalModalBtn">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop" id="editModal">
+        <div class="modal-content">
+            <div class="modal-title">Editar Perfil</div>
+            
+            <div class="form-group">
+                <label>Nombre de Usuario</label>
+                <input type="text" id="inputUsername" class="form-control" placeholder="Escribe tu usuario">
+            </div>
+
+            <div class="form-group">
+                <label>Región / País</label>
+                <select id="selectCountry" class="form-control">
+                    <option value="mx|México">México</option>
+                    <option value="es|España">España</option>
+                    <option value="ar|Argentina">Argentina</option>
+                    <option value="cl|Chile">Chile</option>
+                    <option value="co|Colombia">Colombia</option>
+                    <option value="us|Estados Unidos">Estados Unidos</option>
+                    <option value="pe|Perú">Perú</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Foto de Perfil (Galería)</label>
+                <label class="file-input-btn" for="inputAvatarFile">
+                    <span id="avatarFileName">Seleccionar imagen...</span>
+                </label>
+                <input type="file" id="inputAvatarFile" accept="image/*" style="display:none;">
+                <div class="preview-box avatar-prev" id="avatarPreviewContainer" style="display:none;">
+                    <img id="avatarPreviewImg" src="" alt="Vista previa avatar">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Imagen de Banner (Galería)</label>
+                <label class="file-input-btn" for="inputBannerFile">
+                    <span id="bannerFileName">Seleccionar imagen...</span>
+                </label>
+                <input type="file" id="inputBannerFile" accept="image/*" style="display:none;">
+                <div class="preview-box" id="bannerPreviewContainer" style="display:none;">
+                    <img id="bannerPreviewImg" src="" alt="Vista previa banner">
+                </div>
+            </div>
+
+            <div class="modal-section-title">Etiquetas Visibles</div>
+            <div class="form-group">
+                <div class="tag-toggle-list">
+                    <label class="tag-toggle-item"><input type="checkbox" id="tagToggleVip"><span class="badge-pill vip">VIP</span></label>
+                    <label class="tag-toggle-item"><input type="checkbox" id="tagToggleSupporter"><span class="badge-pill">SUPPORTER</span></label>
+                    <label class="tag-toggle-item"><input type="checkbox" id="tagToggleDev"><span class="badge-pill dev">DEV</span></label>
+                </div>
+            </div>
+
+            <div class="modal-section-title">Añadir Música Favorita</div>
+            <div class="form-group">
+                <label>Buscador (máximo 3 canciones)</label>
+                <input type="text" id="favSongSearch" class="form-control" placeholder="Buscar canción...">
+                <div class="fav-search-results" id="favSearchResults"></div>
+                <div class="fav-selected-list" id="favSelectedList"></div>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-action btn-cancel" id="closeModalBtn">Cancelar</button>
+                <button class="btn-action btn-save" id="saveProfileBtn">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

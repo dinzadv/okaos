@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OKAOs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&display=swap" rel="stylesheet">
+    <link class="mcpixel-logo-ref" rel="icon" type="image/jpg" href="../img/logo.jpg">
+    <link rel="stylesheet" href="../css/play.css">
+    <script src="../js/mods.js" data-page="play" data-scripts="okx,songs,play"></script>
+</head>
+<body oncontextmenu="return false;">
+
+    <img id="bgArt" alt="">
+    <video id="bgVideo" autoplay loop muted playsinline></video>
+    <div class="bg-shade"></div>
+
+    <header class="topbar">
+        <div class="brand">OKAOs</div>
+        <nav class="menu" id="diffMenu">
+            <a href="/" class="menu-btn menu-btn-home">Inicio</a>
+            <span class="menu-btn active" data-diff="All">All</span>
+            <span class="menu-btn" data-diff="Easy">Easy</span>
+            <span class="menu-btn" data-diff="Medium">Medium</span>
+            <span class="menu-btn" data-diff="Hard">Hard</span>
+            <span class="menu-btn" data-diff="Impossible">Impossible</span>
+        </nav>
+    </header>
+
+    <main class="layout">
+        <section class="tracks-section" id="rightPanel"></section>
+
+        <section class="disc-section">
+            <div class="song-heading">
+                <div class="song-heading-name" id="headName">Tutorial</div>
+                <div class="song-heading-author" id="headAuthor">Selecciona una canción</div>
+            </div>
+
+            <div class="art-card-wrap">
+                <div class="art-card" id="disc">
+                    <div class="art-grooves"></div>
+                    <img id="discArt" src="../img/logo.jpg" alt="">
+                    <div class="art-hole"></div>
+                </div>
+                <div class="art-tag" id="artDifficultyTag">--</div>
+            </div>
+
+            <div class="quick-info-bar">
+                <div class="quick-info-item"><span>Dificultad</span><b id="quickDiff">--</b></div>
+                <div class="quick-info-item"><span>Duración</span><b id="quickDuration">--:--</b></div>
+            </div>
+
+            <div class="action-buttons-group">
+                <button type="button" id="btnSongInfo" class="action-sub-btn" disabled>ℹ Información</button>
+                <button type="button" id="btnFullStats" class="action-sub-btn" disabled>🏆 Estadísticas</button>
+            </div>
+
+            <button type="button" class="play-btn" id="btnPlay" disabled>▶ Jugar</button>
+        </section>
+    </main>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content-wrapper" id="loadingContent">
+            <div class="loading-gif-container"><img src="../img/icons/ic2.gif" alt="Cargando"></div>
+            <div class="loading-text" id="loadingText">Cargando</div>
+        </div>
+    </div>
+
+    <div class="full-stats-overlay" id="songInfoOverlay">
+        <div class="full-stats-panel">
+            <button type="button" class="full-stats-close" id="btnCloseSongInfo">✕</button>
+            <div class="full-stats-header">
+                <img id="infoModalArt" src="" alt="">
+                <div>
+                    <div class="full-stats-title" id="infoModalTitle"></div>
+                    <div class="full-stats-plays" id="infoModalAuthor"></div>
+                </div>
+            </div>
+            <div class="info-modal-body">
+                <ul class="info-list">
+                    <li><span>Dificultad Exacta</span><b id="infoModalDiff">--</b></li>
+                    <li><span>Estrellas de Dificultad</span><span id="infoModalStars"></span></li>
+                    <li><span>Duración Total</span><b id="infoModalDuration">--:--</b></li>
+                    <li><span>Puntos Requeridos</span><b id="infoModalPoints">---</b></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="full-stats-overlay" id="fullStatsOverlay">
+        <div class="full-stats-panel">
+            <button type="button" class="full-stats-close" id="btnCloseFullStats">✕</button>
+            <div class="full-stats-header">
+                <img id="fullStatsArt" src="" alt="">
+                <div>
+                    <div class="full-stats-title" id="fullStatsTitle"></div>
+                    <div class="full-stats-plays" id="fullStatsPlays"></div>
+                </div>
+            </div>
+            <div class="full-stats-modes" id="fullStatsModes"></div>
+        </div>
+    </div>
+
+</body>
+</html>

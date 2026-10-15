@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>OKAOs - Añadir Canciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&display=swap" rel="stylesheet">
+    <link class="mcpixel-logo-ref" rel="icon" type="image/jpg" href="../img/logo.jpg">
+    <link rel="stylesheet" href="../css/music.css">
+    <script src="../js/mods.js" data-page="music" data-scripts="okx,songs,music"></script>
+</head>
+<body oncontextmenu="return false;">
+
+    <div id="bg-container">
+        <img id="bg-element" src="../img/fn/f4.jpg" alt="Fondo">
+    </div>
+    <div class="bg-shade"></div>
+
+    <header class="topbar">
+        <div class="brand">OKAOs</div>
+        <nav class="menu" id="diffMenu">
+            <a href="../index.html" class="menu-btn menu-btn-home" id="homeBtn">Inicio</a>
+            <span class="menu-btn active" data-diff="All">All</span>
+            <span class="menu-btn" data-diff="Easy">Easy</span>
+            <span class="menu-btn" data-diff="Medium">Medium</span>
+            <span class="menu-btn" data-diff="Hard">Hard</span>
+            <span class="menu-btn" data-diff="Impossible">Impossible</span>
+            <span class="menu-btn menu-btn-add" id="addMapBtn" title="Subir mapa">+</span>
+        </nav>
+        <input type="file" id="mapFileInput" accept=".okx,.oks,audio/*,image/*,video/*" multiple hidden>
+    </header>
+
+    <div class="upload-toast" id="uploadToast"></div>
+
+    <main class="main-layout">
+        <section class="grid-section">
+            <div class="search-bar-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="Buscar canción o creador...">
+                <svg class="search-icon" viewBox="0 0 24 24">
+                    <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/>
+                </svg>
+            </div>
+            <div class="grid-panel" id="gridPanel"></div>
+        </section>
+
+        <section class="phone-panel">
+            <div class="phone-wrapper">
+                <div class="song-heading">
+                    <div class="phone-title" id="phoneTitle">Selecciona una</div>
+                    <div class="phone-author" id="phoneAuthor">canción para ver</div>
+                </div>
+
+                <div class="art-card-wrap">
+                    <div class="art-card" id="disc">
+                        <div class="art-grooves"></div>
+                        <img id="phoneImg" src="../img/logo.jpg" alt="Portada">
+                        <div class="art-hole"></div>
+                    </div>
+                </div>
+
+                <div class="phone-details-list">
+                    <div class="phone-detail-item"><span>Duración</span><b id="phoneDuration">--:--</b></div>
+                    <div class="phone-detail-item"><span>Dificultad</span><b id="phoneDiff">--</b></div>
+                    <div class="phone-detail-item"><span>Puntos</span><b id="phonePoints">---</b></div>
+                </div>
+
+                <button type="button" class="phone-action-btn" id="addTrackBtn" disabled>Añadir</button>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

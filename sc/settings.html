@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>OKAOs - Ajustes Móviles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
+    <link class="mcpixel-logo-ref" rel="icon" type="image/jpg" href="../img/logo.jpg">
+    <link rel="stylesheet" href="../css/settings.css">
+    <script src="../js/mods.js" data-page="settings" data-scripts="settings"></script>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="header-nav">
+        <div class="brand-title">OKAOs</div>
+        <div class="difficulty-menu">
+            <a href="/" class="diff-btn diff-btn-home">Volver</a>
+        </div>
+    </div>
+
+    <div class="main-layout">
+        <div class="settings-sidebar">
+            <div class="menu-option active" data-target="gameplay">
+                <div class="fused-button">
+                    <div class="fused-diamond">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M8,5.14V19.14L19,12.14L8,5.14Z"/>
+                        </svg>
+                    </div>
+                    <span class="fused-text">Juego</span>
+                </div>
+            </div>
+
+            <div class="menu-option" data-target="mobile">
+                <div class="fused-button">
+                    <div class="fused-diamond">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17,1.01L7,1C5.9,1 5,1.9 5,3V21C5,22.1 5.9,23 7,23H17C18.1,23 19,22.1 19,21V3C19,1.9 18.1,1.01 17,1.01M17,19H7V5H17V19Z"/>
+                        </svg>
+                    </div>
+                    <span class="fused-text">Móvil</span>
+                </div>
+            </div>
+
+            <div class="menu-option" data-target="audio">
+                <div class="fused-button">
+                    <div class="fused-diamond">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.85 14,18.71V20.77C18.03,19.86 21,16.28 21,12C21,7.72 18.03,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.77 16.5,12M11,21L6,16H2V8H6L11,3V21Z"/>
+                        </svg>
+                    </div>
+                    <span class="fused-text">Audio</span>
+                </div>
+            </div>
+
+            <div class="menu-option" data-target="system">
+                <div class="fused-button">
+                    <div class="fused-diamond">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12,17.27L18.18,21L16.54,14L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,14L5.82,21L12,17.27Z"/>
+                        </svg>
+                    </div>
+                    <span class="fused-text">Sistema</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="settings-content">
+            <div id="gameplay" class="panel-section active">
+                <div class="p5-row">
+                    <div class="p5-row-content">
+                        <span class="p5-label">Velocidad de Flechas Personalizada</span>
+                        <span class="p5-desc">Activar para anular la velocidad por defecto del mapa.</span>
+                    </div>
+                    <div class="p5-row-controls">
+                        <button class="toggle-btn" id="btnCustomSpeed">Off</button>
+                    </div>
+                </div>
+
+                <div class="p5-row disabled-row" id="rowGlobalSpeed">
+                    <div class="p5-row-content">
+                        <span class="p5-label">Velocidad Global de Flechas</span>
+                        <span class="p5-desc">Velocidad de caída de las notas rítmicas.</span>
+                    </div>
+                    <div class="p5-row-controls">
+                        <input type="range" class="range-slider" id="arrowSpeed" min="1.0" max="10.0" step="0.1" value="4.5" disabled>
+                        <span class="p5-val" id="valArrowSpeed">4.5x</span>
+                    </div>
+                </div>
+
+                <div class="p5-row">
+                    <div class="p5-row-content">
+                        <span class="p5-label">Desplazamiento (Offset)</span>
+                        <span class="p5-desc">Sincronización milimétrica del audio visual (ms).</span>
+                    </div>
+                    <div class="p5-row-controls">
+                        <input type="range" class="range-slider" id="offset" min="-100" max="100" step="5" value="0">
+                        <span class="p5-val" id="valOffset">0ms</span>
+                    </div>
+                </div>
+
+                <div class="p5-row">
+                    <div class="p5-row-content">
+                        <span class="p5-label">Mapeo de Teclas / Entradas</span>
+                        <span class="p5-desc">Presiona para reasignar controles físicos o teclado.</span>
+                    </div>
+                    <div class="p5-row-controls">
+                        <div class="key-bind-grid">
+                            <div class="key-box" data-lane="1">
+                                <div class="key-num">Pista 1</div>
+                                <div class="key-value" id="key1">D</div>
+                            </div>
+                            <div class="key-box" data-lane="2">
+                                <div class="key-num">Pista 2</div>
+                                <div class="key-value" id="key2">F</div>
+                            </div>
+                            <div class="key-box" data-lane="3">
+                                <div class="key-num">Pista 3</div>
+                                <div class="key-value" id="key3">J</div>
+                            </div>
+                            <div class="key-box" data-lane="4">
+                                <div class="key-num">Pista 4</div>
+                                <div class="key-value" id="key4">K</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mobile" class="panel-section">
+                <div class="p5-row">
+                    <div class="p5-row-content">
+                        <span class="p5-label">Posición de Flechas / Receptores</span>
+                        <span class="p5-desc">Define si las flechas objetivas están arriba o abajo.</span>
+                    </div>
+                    <div class="p5-row-controls">
+                        <button class="toggle-btn" id="btnArrowPos">Arriba</button>
+                    </div>
+                </div>
+
+                <div class="p5-row">
+                    <div class="p5-row-content">
+                        <span class="p5-label">Respuesta Háptica (Vibración)</span>
+                        <span class="p5-desc">Vibrar el dispositivo al presionar o tocar una nota.</span>
+                    </div>
+                    <div class="p5-row-controls">
+                        <button class="toggle-btn on" id="btnVibration">Activo</button>
+                    </div>
+                </div>
+
+                <div class="p5-row">
+                    <div class="p5-row-content">
+                        <span class="p5-label">Tamaño Controles Táctiles</span>
+                        <span class="p5-desc">Ajusta el área de toque para móviles.</span>
+                    </div>
+                    <div class="p5-row-controls">
+                        <input type="range" class="range-slider" id="touchSize" min="80" max="140" step="5" value="100">
+                        <span class="p5-val" id="valTouchSize">100%</span>
+                    </div>
+                </div>
+
+                <div class="p5-row">
+                    <div class="p5-row-content">
+                        <span class="p5-label">Opacidad Botones Táctiles</span>
+                        <span class="p5-desc">Transparencia de los botones en pantalla.</span>
+                    </div>
+                    <div class="p5-row-controls">
+                        <input type="range" class="range-slider" id="touchOpacity" min="20" max="100" step="5" value="80">
+                        <span class="p5-val" id="valTouchOpacity">80%</span>
+                    </div>
+                </div>
+
+                <div class="p5-row">
+                    <div class="p5-row-content">
+                        <span class="p5-label">Oscurecer Carril de Flechas</span>
+                        <span class="p5-desc">Aumenta el fondo oscuro donde caen las flechas.</span>
+                    </div>
+                    <div class="p5-row-controls">
+                        <input type="range" class="range-slider" id="laneOpacity" min="0" max="100" step="5" value="0">
+                        <span class="p5-val" id="valLaneOpacity">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="audio" class="panel-section">
+                <div class="p5-row">
+                    <div class="p5-row-content">
+                        <span class="p5-label">Volumen Maestro</span>
+                        <span class="p5-desc">Nivel general de audio de la aplicación.</span>
+                    </div>
+                    <div class="p5-row-controls">
+                        <input type="range" class="range-slider" id="masterVol" min="0" max="100" value="80">
+                        <span class="p5-val" id="valMasterVol">80%</span>
+                    </div>
+                </div>
+
+                <div class="p5-row">
+                    <div class="p5-row-content">
+                        <span class="p5-label">Música (BGM)</span>
+                        <span class="p5-desc">Volumen de las pistas musicales de fondo.</span>
+                    </div>
+                    <div class="p5-row-controls">
+                        <input type="range" class="range-slider" id="bgmVol" min="0" max="100" value="70">
+                        <span class="p5-val" id="valBgmVol">70%</span>
+                    </div>
+                </div>
+
+                <div class="p5-row">
+                    <div class="p5-row-content">
+                        <span class="p5-label">Efectos (SFX)</span>
+                        <span class="p5-desc">Sonidos de interfaz y acierto de notas.</span>
+                    </div>
+                    <div class="p5-row-controls">
+                        <input type="range" class="range-slider" id="sfxVol" min="0" max="100" value="90">
+                        <span class="p5-val" id="valSfxVol">90%</span>
+                    </div>
+                </div>
+
+                <div class="p5-row">
+                    <div class="p5-row-content">
+                        <span class="p5-label">Velocidad de Reproducción de Música</span>
+                        <span class="p5-desc">Modifica el pitch / velocidad global de las canciones.</span>
+                    </div>
+                    <div class="p5-row-controls">
+                        <input type="range" class="range-slider" id="musicSpeed" min="0.5" max="2.0" step="0.05" value="1.0">
+                        <span class="p5-val" id="valMusicSpeed">1.0x</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="system" class="panel-section">
+                <div class="p5-row">
+                    <div class="p5-row-content">
+                        <span class="p5-label">Formato de Pantalla</span>
+                        <span class="p5-desc">Cambia el diseño de los ajustes a horizontal para móviles en landscape.</span>
+                    </div>
+                    <div class="p5-row-controls">
+                        <button class="toggle-btn" id="btnHorizontal">Vertical</button>
+                    </div>
+                </div>
+
+                <div class="p5-row">
+                    <div class="p5-row-content">
+                        <span class="p5-label">Partículas y Destellos</span>
+                        <span class="p5-desc">Efectos visuales al lograr combos o notas.</span>
+                    </div>
+                    <div class="p5-row-controls">
+                        <button class="toggle-btn on" id="btnFX">Activo</button>
+                    </div>
+                </div>
+
+                <div class="p5-row">
+                    <div class="p5-row-content">
+                        <span class="p5-label">Líneas Guía de Carril</span>
+                        <span class="p5-desc">Visualizar la rejilla vertical de ejecución.</span>
+                    </div>
+                    <div class="p5-row-controls">
+                        <button class="toggle-btn on" id="btnLines">Activo</button>
+                    </div>
+                </div>
+
+                <div class="p5-row">
+                    <div class="p5-row-content">
+                        <span class="p5-label">Guardado Local</span>
+                        <span class="p5-desc">Almacenar récords y configuraciones.</span>
+                    </div>
+                    <div class="p5-row-controls">
+                        <button class="toggle-btn on" id="btnStorage">Activo</button>
+                    </div>
+                </div>
+
+                <div class="p5-row">
+                    <div class="p5-row-content">
+                        <span class="p5-label">Restablecer Todo</span>
+                        <span class="p5-desc">Eliminar configuraciones y volver a valores por defecto.</span>
+                    </div>
+                    <div class="p5-row-controls">
+                        <button class="btn-action" id="btnClearAll">Borrar Todo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
