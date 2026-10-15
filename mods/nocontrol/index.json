@@ -1,0 +1,31 @@
+{
+  "id": "nocontrol",
+  "nombre": "NO CONTROL",
+  "name": "NO CONTROL - Teto x Miku",
+  "descripcion": "Mapa completo de NO CONTROL (Kasane Teto x Hatsune Miku) a 160 BPM con holds, acordes, cambios de carril, bombas, secciones y tema neon propio.",
+  "creador": "OKAOS Mod Studio",
+  "version": "1.0.0",
+  "prioridad": 10,
+  "activo": true,
+  "licencia": "Uso personal / fan-made. La cancion y el video pertenecen a sus autores originales.",
+  "credenciales": {
+    "autor_mod": "OKAOS Mod Studio",
+    "artistas": ["Kasane Teto", "Hatsune Miku"],
+    "cancion": "NO CONTROL",
+    "bpm": 160,
+    "motor": "OKAOS mods v1",
+    "compatibilidad": ["okx1", "oks"]
+  },
+  "dificultades": ["Chaos"],
+  "archivos": ["img/assets/arrow.png", "img/assets/bom.png"],
+  "estilos": ["nocontrol.css"],
+  "scripts": ["nocontrol.js"],
+  "canciones": [
+    {
+      "mapa": "no_control.oks",
+      "audio": "audio.mp3",
+      "fondo": "fondo.jpg",
+      "video": "video.mp4"
+    }
+  ]
+}
